@@ -1,0 +1,21 @@
+.<div class="jumbotron bg-white text-center ">
+  <h1 class="display-2">Covid-19 selon les pays</h1>
+  <hr>
+  <p class="lead">quels sont désormais les pays les plus touchés dans le monde ?</p>
+  <hr class="my-4">
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque aperiam, cumque recusandae suscipit totam reiciendis rem minima, assumenda,
+     cupiditate omnis natus facere? Doloremque deleniti obcaecati accusantium ipsa ipsum repellendus dolores?</p>
+</div>
+
+<div class="col-md-8 center">
+  <h2 class="text-center">Cas de coronavirus dans le monde</h2>
+  <label for="pays">Choisir un pays</label>
+<select class="form-control form-control-sm" name="" id="country"  #input (change)='updateValues(input.value)'>
+  <option class="data" *ngFor="let data of pays" [value]="data">{{data}}</option>
+</select>
+</div>
+
+<div class="col-md-8 center mt-4" >
+<app-dashboard-card [totalConfirmed]='totalConfirmed' [totalDeaths]= 'totalDeaths'
+ [totalActive]= 'totalActive' [totalRecovered] = 'totalRecovered'></app-dashboard-card>
+</div>
