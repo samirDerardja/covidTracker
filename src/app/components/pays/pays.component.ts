@@ -15,7 +15,7 @@ export class PaysComponent implements OnInit {
   totalDeaths = 0;
   totalRecovered = 0;
   totalActive = 0;
-  globalata : GlobalDataSummery[] ;
+
 
   constructor(private data : DataServicesService) { }
 

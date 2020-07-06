@@ -99,97 +99,55 @@
       <div class="card-header border-0">
         <div class="row align-items-center">
           <div class="col">
-            <h3 class="mb-0">Page visits</h3>
+            <h3 class="mb-0">Bilan global dans le monde</h3>
           </div>
           <div class="col text-right">
-            <a href="#!" class="btn btn-sm btn-primary">See all</a>
+            <a href="#!" class="btn btn-sm btn-primary">Tous voir</a>
           </div>
         </div>
       </div>
       <div class="table-responsive">
         <!-- Projects table -->
-        <table class="table align-items-center table-flush">
+        <table class="table align-items-center table-flush" >
           <thead class="thead-light">
             <tr>
-              <th scope="col">Page name</th>
-              <th scope="col">Visitors</th>
-              <th scope="col">Unique users</th>
-              <th scope="col">Bounce rate</th>
+              <th scope="col">Pays</th>
+              <th scope="col">nombre de cas confirmés</th>
+              <th scope="col">Retour à domicile</th>
+              <th scope="col">Décés en hopital</th>
+              <th scope="col">Cas actifs</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let data of globalata | paginate: { itemsPerPage: 8, currentPage: p }">
               <th scope="row">
-                /argon/
+                {{data.country}}
               </th>
               <td>
-                4,569
+                {{data.confirmed}}
               </td>
               <td>
-                340
+               {{data.recovered}}
               </td>
               <td>
-                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
+                {{data.deaths}}
+               </td>
+              <td>
+                <i class="fas fa-arrow-up text-success mr-3"></i> {{data.active}}
               </td>
             </tr>
-            <tr>
-              <th scope="row">
-                /argon/index.html
-              </th>
-              <td>
-                3,985
-              </td>
-              <td>
-                319
-              </td>
-              <td>
-                <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                /argon/charts.html
-              </th>
-              <td>
-                3,513
-              </td>
-              <td>
-                294
-              </td>
-              <td>
-                <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                /argon/tables.html
-              </th>
-              <td>
-                2,050
-              </td>
-              <td>
-                147
-              </td>
-              <td>
-                <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">
-                /argon/profile.html
-              </th>
-              <td>
-                1,795
-              </td>
-              <td>
-                190
-              </td>
-              <td>
-                <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-              </td>
-            </tr>
+
           </tbody>
         </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+
+
+                <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+
+          </ul>
+        </nav>
+
       </div>
     </div>
   </div>
@@ -218,10 +176,10 @@
           <tbody>
             <tr>
               <th scope="row">
-                Facebook
+                Total cas actifs
               </th>
               <td>
-                1,480
+                {{totalActive}}
               </td>
               <td>
                 <div class="d-flex align-items-center">
@@ -236,10 +194,10 @@
             </tr>
             <tr>
               <th scope="row">
-                Facebook
+               Total cas confirmés
               </th>
               <td>
-                5,480
+                {{totalConfirmed}}
               </td>
               <td>
                 <div class="d-flex align-items-center">
@@ -254,10 +212,10 @@
             </tr>
             <tr>
               <th scope="row">
-                Google
+               Total de morts
               </th>
               <td>
-                4,807
+                {{totalDeaths}}
               </td>
               <td>
                 <div class="d-flex align-items-center">
@@ -272,10 +230,10 @@
             </tr>
             <tr>
               <th scope="row">
-                Instagram
+             Retour à domicile
               </th>
               <td>
-                3,678
+                {{totalRecovered}}
               </td>
               <td>
                 <div class="d-flex align-items-center">
