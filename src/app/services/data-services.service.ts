@@ -7,9 +7,12 @@ import { GlobalDataSummery } from '../models/globalData';
   providedIn: 'root'
 })
 export class DataServicesService {
+  GlobalDataSummery() {
+    throw new Error("Method not implemented.");
+  }
 
 
-  private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/07-02-2020.csv';
+  private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/07-06-2020.csv';
   constructor(private http: HttpClient) { }
 
   getGlobalData(){
