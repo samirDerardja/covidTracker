@@ -15,6 +15,7 @@ export class PaysComponent implements OnInit {
   totalDeaths = 0;
   totalRecovered = 0;
   totalActive = 0;
+  country: any;
 
 
   constructor(private data : DataServicesService) { }
@@ -23,12 +24,17 @@ export class PaysComponent implements OnInit {
 
     this.data.getGlobalData().subscribe(result => {
       this.globalData = result;
+      console.log(result);
+
       this.globalData.forEach(cs =>  {
        this.pays.push(cs.country);
       });
 
     });
+
+    this.updateValues(this.country.value);
   }
+
   updateValues(country : string) {
     console.log(country);
     this.globalData.forEach(element => {

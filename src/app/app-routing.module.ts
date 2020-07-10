@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { PaysComponent } from './components/pays/pays.component';
+import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component';
+
 
 
 export const routes: Routes = [
-  {path: '' , component : HomeComponent},
+  {path: 'home' , component : HomeComponent},
+  {path: 'dashboard' , component : DashboardCardComponent},
   {path: 'pays' , component : PaysComponent},
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

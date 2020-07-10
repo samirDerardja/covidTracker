@@ -1,7 +1,34 @@
 
+  <!-- Main content -->
+  <div class="main-content" id="panel">
 
+    <div class="header bg-primary pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="pays" routerLink='pays'>cas par pays</a></li>
+                </ol>
+              </nav>
+            </div>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="#" class="btn btn-sm btn-neutral">New</a>
+              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+            </div>
+          </div>
+          <!-- Card stats -->
 
-<div class="row">
+        </div>
+      </div>
+    </div>
+
+<div class="container">
+<div class="row mt-4 ">
   <div class="col-xl-3 col-md-6">
     <div class="card card-stats">
       <!-- Card body -->
@@ -30,7 +57,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Retours à domicile</h5>
+            <h5 class="card-title text-uppercase text-muted mb-0">Guérisons</h5>
             <span class="h2 font-weight-bold mb-0">{{totalRecovered}}</span>
           </div>
           <div class="col-auto">
@@ -152,6 +179,20 @@
 
 </div>
 
+
+<div class="row">
+  <div class="col-md-6">
+   <canvas id="myChart"></canvas>
+ </div>
+ <div class="col-md-6">
+   <canvas id="pieChart"></canvas>
+ </div>
+  </div>
+ <div class="col-md-12">
+   <canvas id="countryChart"></canvas>
+ </div>
+
+
 <div class="row mt-4 mb-4  mx-auto" style="width: 50%;">
   <div class="custom-control custom-radio custom-control-inline">
    <input type="radio" id="customRadioInline1" #c value="c" (click)="updateChart(c)" name="caseType" class="custom-control-input">
@@ -169,6 +210,10 @@
    <input type="radio" id="customRadioInline4" #d value="d" (click)="updateChart(d)" name="caseType" class="custom-control-input">
    <label class="custom-control-label" for="customRadioInline4">retour domicile</label>
  </div>
+  </div>
+
+  </div>
+
   </div>
 
 

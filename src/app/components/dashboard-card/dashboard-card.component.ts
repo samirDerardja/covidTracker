@@ -11,20 +11,21 @@ import * as Chart from 'chart.js';
 export class DashboardCardComponent implements OnInit {
 
 
-  // tslint:disable-next-line: no-input-rename
-  @Input('totalConfirmed') totalConfirmed;
-  // tslint:disable-next-line: no-input-rename
-  @Input('totalActive') totalActive;
-  // tslint:disable-next-line: no-input-rename
-  @Input('totalDeaths') totalDeaths;
-  // tslint:disable-next-line: no-input-rename
-  @Input('totalRecovered') totalRecovered;
+  // // tslint:disable-next-line: no-input-rename
+  // @Input('totalConfirmed') totalConfirmed;
+  // // tslint:disable-next-line: no-input-rename
+  // @Input('totalActive') totalActive;
+  // // tslint:disable-next-line: no-input-rename
+  // @Input('totalDeaths') totalDeaths;
+  // // tslint:disable-next-line: no-input-rename
+  // @Input('totalRecovered') totalRecovered;
 
   // tslint:disable-next-line: no-shadowed-variable
 
   p = 1;
 
   globalata: GlobalDataSummery[] = [];
+
 
   chart: Chart;
   canvas: any;
@@ -36,6 +37,13 @@ export class DashboardCardComponent implements OnInit {
 
 
   constructor(private dataService: DataServicesService) { }
+
+  totalConfirmed = 0;
+  totalDeaths = 0;
+  totalRecovered = 0;
+  totalActive = 0;
+
+
 
   pageChanged(event) {
     this.p = event;

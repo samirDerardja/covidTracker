@@ -7,7 +7,7 @@
      cupiditate omnis natus facere? Doloremque deleniti obcaecati accusantium ipsa ipsum repellendus dolores?</p>
 </div>
 
-<div class="col-md-8 center">
+<div class="col-md-8 mx-auto">
   <h2 class="text-center">Cas de coronavirus dans le monde</h2>
   <label for="pays">Choisir un pays</label>
 <select class="form-control form-control-sm" name="" id="country"  #input (change)='updateValues(input.value)'>
@@ -15,7 +15,96 @@
 </select>
 </div>
 
-<div class="col-md-8 center mt-4" >
-<app-dashboard-card [totalConfirmed]='totalConfirmed' [totalDeaths]= 'totalDeaths'
- [totalActive]= 'totalActive' [totalRecovered] = 'totalRecovered'></app-dashboard-card>
+<div class="col-md-8 mx-auto mt-4" >
+  <div class="row mt-4 ">
+    <div class="col-xl-3 col-md-6">
+      <div class="card card-stats">
+        <!-- Card body -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">Cas confirmés</h5>
+              <span class="h2 font-weight-bold mb-0">{{totalConfirmed}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-yellow text-black rounded-circle shadow">
+                <i class="ni ni-check-bold"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-sm">
+            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+            <span class="text-nowrap">Since last month</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card card-stats">
+        <!-- Card body -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">Guérisons</h5>
+              <span class="h2 font-weight-bold mb-0">{{totalRecovered}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                <i class="ni ni-shop"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-sm">
+            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+            <span class="text-nowrap">Since last month</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card card-stats">
+        <!-- Card body -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">Décès à l’hôpital</h5>
+              <span class="h2 font-weight-bold mb-0">{{totalDeaths}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                <i class="ni ni-ambulance"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-sm">
+            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+            <span class="text-nowrap">Since last month</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+      <div class="card card-stats">
+        <!-- Card body -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">Cas actifs</h5>
+              <span class="h2 font-weight-bold mb-0">{{totalActive}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                <i class="ni ni-chart-bar-32"></i>
+              </div>
+            </div>
+          </div>
+          <p class="mt-3 mb-0 text-sm">
+            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+            <span class="text-nowrap">Since last month</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
