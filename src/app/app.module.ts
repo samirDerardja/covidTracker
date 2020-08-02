@@ -10,6 +10,11 @@ import { DashboardCardComponent } from './components/dashboard-card/dashboard-ca
 import { ChartsModule } from 'ng2-charts';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { ActivatedRoute } from '@angular/router';
 
 
 @NgModule({
@@ -19,6 +24,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HomeComponent,
     PaysComponent,
     DashboardCardComponent,
+    RegisterComponent,
+    LoginComponent
 
 
   ],
@@ -28,8 +35,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HttpClientModule,
     ChartsModule,
     Ng2GoogleChartsModule,
-    NgxPaginationModule
-
+    NgxPaginationModule,
+    NgSelectModule,
+    FormsModule,
   ],
 
   providers: [],

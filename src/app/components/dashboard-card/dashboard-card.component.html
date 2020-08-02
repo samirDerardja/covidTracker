@@ -1,127 +1,166 @@
 
+
+<section class="funfacts type_four">
+  <div class="bg_icons">
+     <span class="flaticon-virus one"></span>
+     <span class="flaticon-virus two"></span>
+     <span class="flaticon-virus three"></span>
+     <span class="flaticon-virus four"></span>
+     <span class="flaticon-virus five"></span>
+     <span class="flaticon-virus six"></span>
+     <span class="flaticon-virus seven"></span>
+     <span class="flaticon-virus eight"></span>
+  </div>
+  <div class="container-fluid">
+     <div class="row">
+        <div class="col-lg-2 col-md-2 d-flex">
+           <div class="funfacts_count">
+              <div class="fun_facts_box type_four">
+                 <small class="flaticon-hospitalisation icon"></small>
+                 <h6><span class="counter-value">{{totalConfirmed}}</span>+</h6>
+                 <h2>Cas dans le monde </h2>
+              </div>
+              <div class="fun_facts_box type_four">
+                 <small class="flaticon-death icon"></small>
+                 <h6><span class="counter-value">{{totalDeaths}}</span>+</h6>
+                 <h2>Morts</h2>
+              </div>
+              <div class="fun_facts_box type_four">
+                 <small class="flaticon-family icon"></small>
+                 <h6><span class="counter-value">{{totalRecovered}}</span>+</h6>
+                 <h2> Guérisons</h2>
+              </div>
+           </div>
+        </div>
+        <div class="col-lg-10 col-md-10">
+           <div class="funfacts_box">
+              <div class="image_box text-center">
+                 <img src="assets/image/resources/funfacts-home-4.png" class="img-fluid" alt="img" />
+              </div>
+              <div class="fun_facts_no">
+                 <div class="fact_one facts">
+                    <div class="fact_box">
+                       <div class="fact_number_box">
+                          <div class="image">
+                             <img src="assets/image/svg/spain.svg" class="img-fluid svg_image" alt="Iran" />
+                             <h2>Iran</h2>
+                          </div>
+                          <div class="facts_total">
+                             <h6><span>Total Cases :</span> 80,000</h6>
+                             <h6><span>Total Deaths :</span> 2453</h6>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="fact_two facts">
+                    <div class="fact_box">
+                       <div class="fact_number_box">
+                          <div class="image">
+                             <img src="assets/image/svg/flag.svg" class="img-fluid svg_image" alt="usa" />
+                             <h2>usa</h2>
+                          </div>
+                          <div class="facts_total">
+                             <h6><span>Total cas :</span >{{totalActive}}</h6>
+                             <h6><span>Total morts :</span> 57</h6>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="fact_three facts">
+                    <div class="fact_box">
+                       <div class="fact_number_box">
+                          <div class="image">
+                             <img src="assets/image/svg/korea.svg" class="img-fluid svg_image" alt="korea" />
+                             <h2>Korea</h2>
+                          </div>
+                          <div class="facts_total">
+                             <h6><span>Total Cases :</span> 1200</h6>
+                             <h6><span>Total Deaths :</span> 57</h6>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="fact_four facts">
+                    <div class="fact_box">
+                       <div class="fact_number_box">
+                          <div class="image">
+                             <img src="assets/image/svg/china.svg" class="img-fluid svg_image" alt="china" />
+                             <h2>China</h2>
+                          </div>
+                          <div class="facts_total">
+                             <h6><span>Total Cases :</span> 12,200</h6>
+                             <h6><span>Total Deaths :</span> 6000</h6>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="fact_five facts">
+                    <div class="fact_box">
+                       <div class="fact_number_box">
+                          <div class="image">
+                             <img src="assets/image/svg/india.svg" class="img-fluid svg_image" alt="india" />
+                             <h2>India</h2>
+                          </div>
+                          <div class="facts_total">
+                             <h6><span>Total Cases :</span> 1200</h6>
+                             <h6><span>Total Deaths :</span> 57</h6>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+  </div>
+</section>
   <!-- Main content -->
   <div class="main-content" id="panel">
 
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Tableau de bord</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><a href="pays" routerLink='pays'>cas par pays</a></li>
-                </ol>
-              </nav>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">New</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-            </div>
-          </div>
-          <!-- Card stats -->
 
-        </div>
-      </div>
+<div class="about_fun_ffacts col-lg-8 mt-4 mx-auto"  *ngFor="let data of glob" >
+  <div class="row"  >
+    <div class="col-lg-3">
+       <div class="fun_facts_box type_one" >
+          <div class="icon">
+             <img src="/assets/image/svg/virus.svg" class="img-fluid svg_image" alt="home" />
+          </div>
+          <h2 style="color: rgb(0, 0, 0);"><span class="counter-value" style="color: rgb(0, 0, 0);">{{data[0]}}</span>+</h2>
+          <h6 style="color: black;">Total confirmé</h6>
+       </div>
     </div>
-
-<div class="container">
-<div class="row mt-4 ">
-  <div class="col-xl-3 col-md-6">
-    <div class="card card-stats">
-      <!-- Card body -->
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Cas confirmés</h5>
-            <span class="h2 font-weight-bold mb-0">{{totalConfirmed}}</span>
+    <div class="col-lg-3">
+       <div class="fun_facts_box type_one" >
+          <div class="icon">
+             <img src="/assets/image/svg/partnership.svg" class="img-fluid svg_image" alt="home" />
           </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-yellow text-black rounded-circle shadow">
-              <i class="ni ni-check-bold"></i>
-            </div>
-          </div>
-        </div>
-        <p class="mt-3 mb-0 text-sm">
-          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-          <span class="text-nowrap">Since last month</span>
-        </p>
-      </div>
+          <h2 style="color: rgb(7, 91, 247);"><span class="counter-value" style="color: rgb(7, 91, 247);">{{data[3]}}</span>+</h2>
+          <h6 style="color: rgb(7, 91, 247);">Nouveau cas confirmés</h6>
+       </div>
     </div>
-  </div>
-  <div class="col-xl-3 col-md-6">
-    <div class="card card-stats">
-      <!-- Card body -->
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Guérisons</h5>
-            <span class="h2 font-weight-bold mb-0">{{totalRecovered}}</span>
+    <div class="col-lg-3">
+       <div class="fun_facts_box type_one">
+          <div class="icon">
+             <img src="/assets/image/svg/man.svg" class="img-fluid svg_image" alt="home" />
           </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-              <i class="ni ni-shop"></i>
-            </div>
-          </div>
-        </div>
-        <p class="mt-3 mb-0 text-sm">
-          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-          <span class="text-nowrap">Since last month</span>
-        </p>
-      </div>
+          <h2 style="color: rgb(0, 168, 42);"><span class="counter-value" style="color: rgb(0, 168, 42);">{{data[2]}}</span>+</h2>
+          <h6 style="color: rgb(0, 168, 42);">Total Guérisons</h6>
+       </div>
     </div>
-  </div>
-  <div class="col-xl-3 col-md-6">
-    <div class="card card-stats">
-      <!-- Card body -->
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Décès à l’hôpital</h5>
-            <span class="h2 font-weight-bold mb-0">{{totalDeaths}}</span>
+    <div class="col-lg-3">
+       <div class="fun_facts_box type_one last">
+          <div class="icon">
+             <img src="/assets/image/svg/tombstones.svg" class="img-fluid svg_image" alt="home" />
           </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-              <i class="ni ni-ambulance"></i>
-            </div>
-          </div>
-        </div>
-        <p class="mt-3 mb-0 text-sm">
-          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-          <span class="text-nowrap">Since last month</span>
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-md-6">
-    <div class="card card-stats">
-      <!-- Card body -->
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Cas actifs</h5>
-            <span class="h2 font-weight-bold mb-0">{{totalActive}}</span>
-          </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
-              <i class="ni ni-chart-bar-32"></i>
-            </div>
-          </div>
-        </div>
-        <p class="mt-3 mb-0 text-sm">
-          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-          <span class="text-nowrap">Since last month</span>
-        </p>
-      </div>
+          <h2 style="color: rgb(180, 0, 0);"><span class="counter-value" style="color: rgb(180, 0, 0);">{{data[1]}}</span>+</h2>
+          <h6 style="color: rgb(180, 0, 0);">Total mort</h6>
+       </div>
     </div>
   </div>
 </div>
 
-
 <div class="row">
-  <div class="col-xl-12">
+  <div class="col-xl-8 mx-auto">
     <div class="card">
       <div class="card-header border-0">
         <div class="row align-items-center">
@@ -139,26 +178,26 @@
               <th scope="col">Pays</th>
               <th scope="col">nombre de cas confirmés</th>
               <th scope="col">Retour à domicile</th>
-              <th scope="col">Décés en hopital</th>
+              <th scope="col">Total des Décés</th>
               <th scope="col">Cas actifs</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of globalata | paginate: { itemsPerPage: 8, currentPage: p }">
+            <tr *ngFor="let dat of cP | paginate: { itemsPerPage: 8, currentPage: p } | keyvalue ">
               <th scope="row">
-                {{data.country}}
+                {{dat.value[0]}}
               </th>
               <td>
-                {{data.confirmed}}
+                {{dat.value[3]}}
               </td>
               <td>
-               {{data.recovered}}
+               {{dat.value[6]}}
               </td>
               <td>
-                {{data.deaths}}
+                {{dat.value[5]}}
                </td>
               <td>
-                <i class="fas fa-arrow-up text-success mr-3"></i> {{data.active}}
+                <i class="fas fa-arrow-up text-success mr-3"></i> {{dat.value[1]}}
               </td>
             </tr>
 
@@ -180,6 +219,8 @@
 </div>
 
 
+
+<div class="col-md-8 mx-auto">
 <div class="row">
   <div class="col-md-6">
    <canvas id="myChart"></canvas>
@@ -187,33 +228,36 @@
  <div class="col-md-6">
    <canvas id="pieChart"></canvas>
  </div>
-  </div>
- <div class="col-md-12">
+</div>
+</div>
+
+
+ <!-- <div class="col-md-12 mt-5 mx-auto">
+  <div class="row">
+    <div class="mt-4 mb-4  mx-auto">
+    <div class="custom-control custom-radio custom-control-inline" style="font-weight: 500;">
+     <input type="radio" id="customRadioInline1" #c value="c" (click)="updateChart(c)" name="caseType" class="custom-control-input">
+     <label class="custom-control-label" for="customRadioInline1">cas confirmés</label>
+   </div>
+   <div class="custom-control custom-radio custom-control-inline" style="font-weight: 500;">
+     <input type="radio" id="customRadioInline2" #m value="m" (click)="updateChart(m)" name="caseType" class="custom-control-input">
+     <label class="custom-control-label" for="customRadioInline2">nombre de mort</label>
+   </div>
+   <div class="custom-control custom-radio custom-control-inline" style="font-weight: 500;">
+     <input type="radio" id="customRadioInline3" #a  value="a" (click)="updateChart(a)" name="caseType" class="custom-control-input">
+     <label class="custom-control-label" for="customRadioInline3">cas actifs</label>
+   </div>
+   <div class="custom-control custom-radio custom-control-inline" style="font-weight: 500;">
+     <input type="radio" id="customRadioInline4" #d value="d" (click)="updateChart(d)" name="caseType" class="custom-control-input">
+     <label class="custom-control-label" for="customRadioInline4">retour domicile</label>
+   </div>
+    </div>
+    </div>
    <canvas id="countryChart"></canvas>
- </div>
-
-
-<div class="row mt-4 mb-4  mx-auto" style="width: 50%;">
-  <div class="custom-control custom-radio custom-control-inline">
-   <input type="radio" id="customRadioInline1" #c value="c" (click)="updateChart(c)" name="caseType" class="custom-control-input">
-   <label class="custom-control-label" for="customRadioInline1">cas confirmés</label>
- </div>
- <div class="custom-control custom-radio custom-control-inline">
-   <input type="radio" id="customRadioInline2" #m value="m" (click)="updateChart(m)" name="caseType" class="custom-control-input">
-   <label class="custom-control-label" for="customRadioInline2">nombre de mort</label>
- </div>
- <div class="custom-control custom-radio custom-control-inline">
-   <input type="radio" id="customRadioInline3" #a  value="a" (click)="updateChart(a)" name="caseType" class="custom-control-input">
-   <label class="custom-control-label" for="customRadioInline3">cas actifs</label>
- </div>
- <div class="custom-control custom-radio custom-control-inline">
-   <input type="radio" id="customRadioInline4" #d value="d" (click)="updateChart(d)" name="caseType" class="custom-control-input">
-   <label class="custom-control-label" for="customRadioInline4">retour domicile</label>
- </div>
-  </div>
+ </div> -->
 
   </div>
 
-  </div>
+
 
 
