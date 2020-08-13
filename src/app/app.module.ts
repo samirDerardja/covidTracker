@@ -7,16 +7,19 @@ import { HomeComponent } from './components/home/home.component';
 import { PaysComponent } from './components/pays/pays.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardCardComponent } from './components/dashboard-card/dashboard-card.component';
-import { ChartsModule } from 'ng2-charts';
-import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { ActivatedRoute } from '@angular/router';
+import FusionCharts from 'fusioncharts';
+import charts from 'fusioncharts/fusioncharts.charts';
+import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+import { FusionChartsModule } from 'angular-fusioncharts';
 
 
+
+FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,11 +36,10 @@ import { ActivatedRoute } from '@angular/router';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ChartsModule,
-    Ng2GoogleChartsModule,
     NgxPaginationModule,
     NgSelectModule,
     FormsModule,
+    FusionChartsModule
   ],
 
   providers: [],

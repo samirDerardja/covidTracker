@@ -17,17 +17,17 @@
            <div class="funfacts_count">
               <div class="fun_facts_box type_four">
                  <small class="flaticon-hospitalisation icon"></small>
-                 <h6><span class="counter-value">{{totalConfirmed}}</span>+</h6>
+                 <h6><span class="counter-value">{{glob[0]}}</span>+</h6>
                  <h2>Cas dans le monde </h2>
               </div>
               <div class="fun_facts_box type_four">
                  <small class="flaticon-death icon"></small>
-                 <h6><span class="counter-value">{{totalDeaths}}</span>+</h6>
+                 <h6><span class="counter-value">{{glob[1]}}</span>+</h6>
                  <h2>Morts</h2>
               </div>
               <div class="fun_facts_box type_four">
                  <small class="flaticon-family icon"></small>
-                 <h6><span class="counter-value">{{totalRecovered}}</span>+</h6>
+                 <h6><span class="counter-value">{{glob[2]}}</span>+</h6>
                  <h2> Guérisons</h2>
               </div>
            </div>
@@ -118,14 +118,14 @@
   <div class="main-content" id="panel">
 
 
-<div class="about_fun_ffacts col-lg-8 mt-4 mx-auto"  *ngFor="let data of glob" >
+<div class="about_fun_ffacts col-lg-8 mt-4 mx-auto">
   <div class="row"  >
     <div class="col-lg-3">
        <div class="fun_facts_box type_one" >
           <div class="icon">
              <img src="/assets/image/svg/virus.svg" class="img-fluid svg_image" alt="home" />
           </div>
-          <h2 style="color: rgb(0, 0, 0);"><span class="counter-value" style="color: rgb(0, 0, 0);">{{data[0]}}</span>+</h2>
+          <h2 style="color: rgb(0, 0, 0);"><span class="counter-value" style="color: rgb(0, 0, 0);">{{glob[0]}}</span>+</h2>
           <h6 style="color: black;">Total confirmé</h6>
        </div>
     </div>
@@ -134,7 +134,7 @@
           <div class="icon">
              <img src="/assets/image/svg/partnership.svg" class="img-fluid svg_image" alt="home" />
           </div>
-          <h2 style="color: rgb(7, 91, 247);"><span class="counter-value" style="color: rgb(7, 91, 247);">{{data[3]}}</span>+</h2>
+          <h2 style="color: rgb(7, 91, 247);"><span class="counter-value" style="color: rgb(7, 91, 247);">{{glob[3]}}</span>+</h2>
           <h6 style="color: rgb(7, 91, 247);">Nouveau cas confirmés</h6>
        </div>
     </div>
@@ -143,7 +143,7 @@
           <div class="icon">
              <img src="/assets/image/svg/man.svg" class="img-fluid svg_image" alt="home" />
           </div>
-          <h2 style="color: rgb(0, 168, 42);"><span class="counter-value" style="color: rgb(0, 168, 42);">{{data[2]}}</span>+</h2>
+          <h2 style="color: rgb(0, 168, 42);"><span class="counter-value" style="color: rgb(0, 168, 42);">{{glob[2]}}</span>+</h2>
           <h6 style="color: rgb(0, 168, 42);">Total Guérisons</h6>
        </div>
     </div>
@@ -152,7 +152,7 @@
           <div class="icon">
              <img src="/assets/image/svg/tombstones.svg" class="img-fluid svg_image" alt="home" />
           </div>
-          <h2 style="color: rgb(180, 0, 0);"><span class="counter-value" style="color: rgb(180, 0, 0);">{{data[1]}}</span>+</h2>
+          <h2 style="color: rgb(180, 0, 0);"><span class="counter-value" style="color: rgb(180, 0, 0);">{{glob[1]}}</span>+</h2>
           <h6 style="color: rgb(180, 0, 0);">Total mort</h6>
        </div>
     </div>
@@ -183,21 +183,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let dat of cP | paginate: { itemsPerPage: 8, currentPage: p } | keyvalue ">
+            <tr *ngFor="let dat of cT | paginate: { itemsPerPage: 8, currentPage: p } ">
               <th scope="row">
-                {{dat.value[0]}}
+                {{dat[0]}}
               </th>
               <td>
-                {{dat.value[3]}}
+                {{dat[1]}}
               </td>
               <td>
-               {{dat.value[6]}}
+               {{dat[2]}}
               </td>
               <td>
-                {{dat.value[5]}}
+                {{dat[3]}}
                </td>
               <td>
-                <i class="fas fa-arrow-up text-success mr-3"></i> {{dat.value[1]}}
+                <i class="fas fa-arrow-up text-success mr-3"></i> {{dat[4]}}
               </td>
             </tr>
 
@@ -222,39 +222,18 @@
 
 <div class="col-md-8 mx-auto">
 <div class="row">
-  <div class="col-md-6">
+  <!-- <div class="col-md-6">
    <canvas id="myChart"></canvas>
  </div>
  <div class="col-md-6">
    <canvas id="pieChart"></canvas>
- </div>
-</div>
-</div>
-
-
- <!-- <div class="col-md-12 mt-5 mx-auto">
-  <div class="row">
-    <div class="mt-4 mb-4  mx-auto">
-    <div class="custom-control custom-radio custom-control-inline" style="font-weight: 500;">
-     <input type="radio" id="customRadioInline1" #c value="c" (click)="updateChart(c)" name="caseType" class="custom-control-input">
-     <label class="custom-control-label" for="customRadioInline1">cas confirmés</label>
-   </div>
-   <div class="custom-control custom-radio custom-control-inline" style="font-weight: 500;">
-     <input type="radio" id="customRadioInline2" #m value="m" (click)="updateChart(m)" name="caseType" class="custom-control-input">
-     <label class="custom-control-label" for="customRadioInline2">nombre de mort</label>
-   </div>
-   <div class="custom-control custom-radio custom-control-inline" style="font-weight: 500;">
-     <input type="radio" id="customRadioInline3" #a  value="a" (click)="updateChart(a)" name="caseType" class="custom-control-input">
-     <label class="custom-control-label" for="customRadioInline3">cas actifs</label>
-   </div>
-   <div class="custom-control custom-radio custom-control-inline" style="font-weight: 500;">
-     <input type="radio" id="customRadioInline4" #d value="d" (click)="updateChart(d)" name="caseType" class="custom-control-input">
-     <label class="custom-control-label" for="customRadioInline4">retour domicile</label>
-   </div>
-    </div>
-    </div>
-   <canvas id="countryChart"></canvas>
  </div> -->
+ <!-- <select onchange="selectDataset(this.options[this.selectedIndex].value);">
+  <option value="set" *ngFor="let data of byEl">{{data}}</option>
+</select> -->
+
+<div id="chartdiv" style="width: 100%; height: 800px"></div>
+</div>
 
   </div>
 
