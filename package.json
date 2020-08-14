@@ -9,10 +9,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "~9.1.8",
+    "@angular/compiler-cli": "~9.1.11",
     "@amcharts/amcharts4": "^4.9.34",
     "@amcharts/amcharts4-fonts": "^4.0.1",
     "@amcharts/amcharts4-geodata": "^4.1.17",
@@ -40,8 +42,6 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.8",
-    "@angular/cli": "~9.1.8",
-    "@angular/compiler-cli": "~9.1.11",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
