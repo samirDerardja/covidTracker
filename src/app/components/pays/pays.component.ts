@@ -24,7 +24,7 @@ export class PaysComponent implements OnInit {
 
     this.data.getGlobalData().subscribe(result => {
       this.globalData = result;
-      console.log(result);
+
 
       this.globalData.forEach(cs =>  {
        this.pays.push(cs.country);
