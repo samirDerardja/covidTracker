@@ -22,10 +22,10 @@ export class DataServicesService implements OnInit {
   private globaleWorldDataUrl = 'https://api.covid19api.com/summary';
   //   private API_KEY = '9590877a0fmshe1db5f40c04bf53p177687jsn591a7a740678';
   //  private dataFromRapid = 'https://corona-virus-world-and-india-data.p.rapidapi.com/api';
-  private worldDataCovid = 'http://api.coronatracker.com/v3/stats/worldometer/global';
+  private worldDataCovid = 'https://api.coronatracker.com/v3/stats/worldometer/global';
   //  private dataByCountry = 'http://api.coronatracker.com/v2/analytics/country';
-  private dataByCountry = 'http://api.coronatracker.com/v3/stats/worldometer/country';
-  private dailyNewStates = 'http://api.coronatracker.com/v3/analytics/dailyNewStats';
+  private dataByCountry = 'https://api.coronatracker.com/v3/stats/worldometer/country';
+  private dailyNewStates = 'https://api.coronatracker.com/v3/analytics/dailyNewStats';
 
   constructor(private http: HttpClient) {
 
