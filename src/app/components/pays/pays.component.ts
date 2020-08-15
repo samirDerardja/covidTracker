@@ -17,10 +17,9 @@ am4core.useTheme(am4themes_animated);
 @Component({
   selector: 'app-pays',
   templateUrl: './pays.component.html',
-  styleUrls: ['./pays.component.css']
+  styleUrls: ['./pays.component.css'],
 })
 export class PaysComponent implements OnInit {
-
   cases: number;
   date: Date;
   p = 1;
@@ -29,8 +28,7 @@ export class PaysComponent implements OnInit {
 
   private chart: am4charts.XYChart;
 
-  constructor(private service: DataServicesService, private zone: NgZone) { }
-
+  constructor(private service: DataServicesService, private zone: NgZone) {}
 
   // tslint:disable-next-line: no-input-rename
   @Input('totalConfirmed') totalConfirmed;
@@ -44,7 +42,7 @@ export class PaysComponent implements OnInit {
   globalData: ByCountries[] = [];
   pays: any[] = [];
   selectCountrieData: DataWiseData[] = [];
-  dateWiseData: { [x: string]: DataWiseData[]; };
+  dateWiseData: { [x: string]: DataWiseData[] };
   newCases = [];
   newDate = [];
   countries: string[] = [];
@@ -59,110 +57,79 @@ export class PaysComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     // tslint:disable-next-line: deprecation
     merge(
       this.service.getDateWiseData().pipe(
-        map(result => {
+        map((result) => {
           this.dateWiseData = result;
-          console.log(this.dateWiseData);
         })
-
       ),
-      this.service.getAllDataByCountry().pipe(map(result => {
-        this.globalData = result;
-        this.globalData.forEach(cs => {
-          this.countries.push(cs.country)
+      this.service.getAllDataByCountry().pipe(
+        map((result) => {
+          this.globalData = result;
+          this.globalData.forEach((cs) => {
+            this.countries.push(cs.country);
+          });
         })
-      }))
-    ).subscribe(
-      {
-        complete: () => {
-          this.updateValues('India')
-          this.loading = false;
-        }
-      }
-    );
+      )
+    ).subscribe({
+      complete: () => {
+        this.updateValues('India');
+        this.loading = false;
+      },
+    });
     this.ngAfterViewInit();
-
   }
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngAfterViewInit() {
     this.zone.runOutsideAngular(() => {
-      const chart = am4core.create("chartdiv", am4charts.XYChart);
+      const chart = am4core.create('chartdiv', am4charts.XYChart);
 
       chart.paddingRight = 20;
       // tslint:disable-next-line: one-variable-per-declaration
 
-      this.service.getAllDataByCountry()
-        .subscribe(
-          result => {
-            this.pays = result;
-            this.pays.forEach(cs => {
-              this.dataTable.push({
-                country: cs.country,
-                value: cs.activeCases,
-              });
-            });
-            console.log(this.dataTable);
-
-
-
-            // tslint:disable-next-line: no-unused-expression
-
-            // tslint:disable-next-line: one-variable-per-declaration
-            // const arr: any[] = [];
-            // tslint:disable-next-line: only-arrow-functions
-
-            chart.data = this.dataTable.slice(0, 50);
-
-            // tslint:disable-next-line: prefer-const
-            let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-            categoryAxis.dataFields.category = 'country';
-            categoryAxis.title.text = "Par pays";
-            categoryAxis.renderer.grid.template.location = 0;
-            let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-
-            let series = chart.series.push(new am4charts.LineSeries());
-            series.stroke = am4core.color("#ff0000"); // red
-            series.strokeWidth = 1; // 3px
-            series.dataFields.categoryX = "country";
-            series.dataFields.valueY = "value";
-            // let heatLegend = chart.createChild(am4charts.HeatLegend);
-            // heatLegend.minColor = am4core.color("#F5DBCB");
-            // heatLegend.maxColor = am4core.color("#ED7B84");
-            // heatLegend.minValue = 0;
-            // heatLegend.maxValue = 100000;
-
-            series.tooltipText = "{valueY.value}";
-            chart.cursor = new am4charts.XYCursor();
-
-            let scrollbarX = new am4charts.XYChartScrollbar();
-            scrollbarX.series.push(series);
-            chart.scrollbarX = scrollbarX;
-
-            this.chart = chart;
-
-
+      this.service.getAllDataByCountry().subscribe((result) => {
+        this.pays = result;
+        this.pays.forEach((cs) => {
+          this.dataTable.push({
+            country: cs.country,
+            value: cs.activeCases,
           });
+        });
 
+        chart.data = this.dataTable.slice(0, 50);
+
+        // tslint:disable-next-line: prefer-const
+        let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = 'country';
+        categoryAxis.title.text = 'Par pays';
+        categoryAxis.renderer.grid.template.location = 0;
+        let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+        let series = chart.series.push(new am4charts.LineSeries());
+        series.stroke = am4core.color('#ff0000'); // red
+        series.strokeWidth = 1; // 3px
+        series.dataFields.categoryX = 'country';
+        series.dataFields.valueY = 'value';
+        series.tooltipText = '{valueY.value}';
+        chart.cursor = new am4charts.XYCursor();
+
+        let scrollbarX = new am4charts.XYChartScrollbar();
+        scrollbarX.series.push(series);
+        chart.scrollbarX = scrollbarX;
+        this.chart = chart;
+      });
     });
-
   }
 
-
-
   updateChart() {
-
     this.zone.runOutsideAngular(() => {
-      const graph = am4core.create("chartdi", am4charts.XYChart);
-
-
-      this.selectCountrieData.forEach(cs => {
+      const graph = am4core.create('chartdi', am4charts.XYChart);
+      this.selectCountrieData.forEach((cs) => {
         this.newDate.push({
           date: cs.date,
-          cases : cs.cases
+          cases: cs.cases,
         });
       });
 
@@ -175,24 +142,17 @@ export class PaysComponent implements OnInit {
       // this makes the data to be grouped
       dateAxis.groupData = true;
       dateAxis.groupCount = 500;
-
       let valueAxis = graph.yAxes.push(new am4charts.ValueAxis());
-
       let series = graph.series.push(new am4charts.LineSeries());
-      series.dataFields.dateX = "date";
-      series.dataFields.valueY = "cases";
-      series.tooltipText = "{valueY}";
-      series.tooltip.pointerOrientation = "vertical";
+      series.dataFields.dateX = 'date';
+      series.dataFields.valueY = 'cases';
+      series.tooltipText = '{valueY}';
+      series.tooltip.pointerOrientation = 'vertical';
       series.tooltip.background.fillOpacity = 0.5;
-
       graph.cursor = new am4charts.XYCursor();
       graph.cursor.xAxis = dateAxis;
-
       let scrollbarX = new am4core.Scrollbar();
       graph.scrollbarX = scrollbarX;
-      console.log(this.newDate);
-
-
     });
   }
 
@@ -205,31 +165,20 @@ export class PaysComponent implements OnInit {
     });
   }
 
-
   updateValues(country: string) {
     console.log(country);
     // tslint:disable-next-line: no-shadowed-variable
-    this.globalData.forEach(el => {
+    this.globalData.forEach((el) => {
       // tslint:disable-next-line: triple-equals
       if (el.country == country) {
-
         this.totalConfirmed = el.totalConfirmed;
         this.totalRecovered = el.totalRecovered;
         this.totalActive = el.activeCases;
         this.totalDeaths = el.totalDeaths;
-        this
-        console.log(el.totalConfirmed);
-
       }
     });
+
     this.selectCountrieData = this.dateWiseData[country];
-    console.log(this.selectCountrieData);
     this.updateChart();
-
   }
-
-
-
 }
-
-

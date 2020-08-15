@@ -17,13 +17,9 @@ import { DailySates } from '../models/dailySates';
 export class DataServicesService implements OnInit {
 
   // tslint:disable-next-line: member-ordering
-  private globalDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/07-26-2020.csv';
+
   private dataWiseDataUrl = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv';
-  private globaleWorldDataUrl = 'https://api.covid19api.com/summary';
-  //   private API_KEY = '9590877a0fmshe1db5f40c04bf53p177687jsn591a7a740678';
-  //  private dataFromRapid = 'https://corona-virus-world-and-india-data.p.rapidapi.com/api';
   private worldDataCovid = 'https://api.coronatracker.com/v3/stats/worldometer/global';
-  //  private dataByCountry = 'http://api.coronatracker.com/v2/analytics/country';
   private dataByCountry = 'https://api.coronatracker.com/v3/stats/worldometer/country';
   private dailyNewStates = 'https://api.coronatracker.com/v3/analytics/dailyNewStats';
 
