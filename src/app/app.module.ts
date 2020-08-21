@@ -16,6 +16,8 @@ import FusionCharts from 'fusioncharts';
 import charts from 'fusioncharts/fusioncharts.charts';
 import * as FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
 import { FusionChartsModule } from 'angular-fusioncharts';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
@@ -27,7 +29,8 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
     PaysComponent,
     DashboardCardComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    BoardAdminComponent
 
 
   ],
@@ -42,7 +45,7 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
   ],
 
   providers: [
-
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent],
 
